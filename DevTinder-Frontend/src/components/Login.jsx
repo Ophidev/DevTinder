@@ -1,14 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/Redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [emailId, setEmailId] = useState("Ayush@gmail.com");
   const [password, setPassword] = useState("Ayush@1234");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
   const handleLogin = async () => {
     
-    const user = await axios.post(
-      "http://localhost:3737/login",
+    const res = await axios.post(
+      BASE_URL+"/login",
       {
         emailId,
         password
@@ -16,7 +23,8 @@ const Login = () => {
       {withCredentials:true}
     );
 
-    console.log(user);
+    dispatch(addUser(res.data));
+    return navigate("/feed");
   };
 
   return (
