@@ -5,7 +5,7 @@ import Footer from './Footer'
 
 const Body = () => {
   return (
-    <div>
+    <div className='w-screen h-screen overflow-hidden'>
         <Navbar/>
         <Outlet/>
         <Footer/>
