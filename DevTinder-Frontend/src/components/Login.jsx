@@ -2,12 +2,21 @@ import { useState } from "react";
 import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailId, setEmailId] = useState("Ayush@gmail.com");
+  const [password, setPassword] = useState("Ayush@1234");
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     
-    
+    const user = await axios.post(
+      "http://localhost:3737/login",
+      {
+        emailId,
+        password
+      },
+      {withCredentials:true}
+    );
+
+    console.log(user);
   };
 
   return (
@@ -20,8 +29,8 @@ const Login = () => {
           type="email"
           className="input"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={emailId}
+          onChange={(e) => setEmailId(e.target.value)}
         />
 
         <label className="label">Password</label>
