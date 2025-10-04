@@ -35,14 +35,11 @@ profileRouter.patch('/profile/edit', userAuth, async (req, res) => {
        //let's update the old user data which is comming from the userAuth
        //  to new user data comming in the api's body
 
-       console.log(loggedInUser);
 
        Object.keys(req.body).forEach(
          (key) => (loggedInUser[key] = req.body[key])
        );
 
-       
-      
        //simple logic -:
        /*
         object.keys(new_user_data_object_keyes).forEach_Loops_on_key_of_new_user_data((perticular_key) => (old_user_data[perticular_key] = new_user_data[perticular_key]));
