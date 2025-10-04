@@ -15,7 +15,7 @@ authRouter.post("/signup", async (req, res) => {
   
   validateSignUpData(req);
 
-  const {firstName, lastName, emailId, password, about} = req.body;
+  const {firstName, lastName, emailId, password, about,age,gender} = req.body;
 
   //second do Encryption of password then store in DB
 
@@ -27,7 +27,9 @@ authRouter.post("/signup", async (req, res) => {
     lastName,
     emailId,
     password: passwordHash,
-    about
+    about,
+    age,
+    gender
   });
     await user.save(); //this will return an promise (in general all the mongoose function return promises)
     res.send("Data successfully send!");
