@@ -10,21 +10,24 @@ const Login = () => {
   const [password, setPassword] = useState("Ayush@1234");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
-    
-    const res = await axios.post(
-      BASE_URL+"/login",
-      {
-        emailId,
-        password
-      },
-      {withCredentials:true}
-    );
+    try {
+      const res = await axios.post(
+        BASE_URL + "/login",
+        {
+          emailId,
+          password,
+        },
+        { withCredentials: true }
+      );
 
-    dispatch(addUser(res.data));
-    return navigate("/feed");
+      dispatch(addUser(res.data));
+      return navigate("/feed");
+    } catch (err) {
+      setError(err?.response?.data);
+    }
   };
 
   return (
@@ -49,7 +52,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
+        <p className="text-red-500">{error}</p>
         <button className="btn btn-neutral mt-4" onClick={handleLogin}>
           Login
         </button>
