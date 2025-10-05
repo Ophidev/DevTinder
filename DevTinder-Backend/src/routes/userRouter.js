@@ -26,7 +26,7 @@ userRouter.get("/user/requests/received", userAuth, async (req, res) => {
     const loggedInUser = req.user;
 
     //getting the necessary fields only
-    //and Model.find({}) method returns an anrray of results based on condition.
+    //and Model.find({}) method returns an array of results based on condition.
     //so, we will get all the request recived no need to loop.
     const connectionRequests = await ConnectionRequestModel.find({
 
