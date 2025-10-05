@@ -21,6 +21,11 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+
+  if(!feed) return;
+
+  if(feed.length <= 0) <h1 className="text-center">no Feed!</h1>;
+
   return (
     feed && (
       <div className="flex justify-center p-5 mb-15">

@@ -17,7 +17,7 @@ requestRouter.post(
 
       //in this api only 2 status are allowed i.e "ignored" & "interested"
 
-      const allowedStatus = ["ignored", "interested"];
+      const allowedStatus = ["ignored","interested"];
 
       if (!allowedStatus.includes(status)) {
         return res.status(404).json({ message: "Invalid Status!!!" });
