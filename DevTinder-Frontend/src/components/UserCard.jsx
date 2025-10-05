@@ -22,8 +22,7 @@ const UserCard = ({ user }) => {
     dispatch(removeUserFromFeed(_id));
 
   };
-
-
+  
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure>
