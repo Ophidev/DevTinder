@@ -36,9 +36,9 @@ const Body = () => {
   return (
     <div className="w-screen h-screen h-full overflow-x-hidden">
       <Navbar />
-        
+
       <Outlet />
-     
+
       <Footer />
     </div>
   );

@@ -10,7 +10,7 @@ const UserCard = ({ user }) => {
   if(!user) return <h1 className="text-center">No feed Avaliable!</h1>
 
 
-  const {firstName, lastName, photoUrl, about, age, gender } = user;
+  const {_id,firstName, lastName, photoUrl, about, age, gender } = user;
 
   const handleSendRequest = async (status, userId) => {
     const res = await axios.post(
